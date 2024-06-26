@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+.signup
+{
+    width: 30%;
+}
+.lower,.upper,.symbol,.number,.length
+{
+	display:flex;
+	align-items:center;
+}
+body
+{
+  position: relative;
+  overflow: hidden;
+}
+.section
+{
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  display: none;
+}
+h5
+{
+  font-size: 15px;
+}
+#check4,#check3,#check2,#check1,#check5
+{
+	display:none;
+}
+input[type="text"]
+{
+	height: 30px;
+	width: 200px;
+	font-size: 2rem;
+	color: green;
+	border: none;
+	outline:none;
+}
+p
+{
+	font-size: 2.5rem;
+	align-items: center;
+	display: flex;
+}
+input[type=text]
+{
+	border: 3px solid green;
+	width: auto;
+}
+</style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <section class="section">
+      <div class="lower">
+      <img id="wrong1" src=./images/wrong.png height=25px width=25px>
+      <img id="check1"src=./images/check.png height=25px width=25px> 
+      <h5 id="head1">Lowercase Letters</h5>
+      </div>
+      <div class="upper">
+      <img id="wrong2" src=./images/wrong.png height=25px width=25px>
+      <img id="check2"src=./images/check.png height=25px width=25px> 
+      <h5 id="head2">Uppercase Letters</h5>
+      </div>
+      <div class="symbol">
+      <img id="wrong3" src=./images/wrong.png height=25px width=25px>
+      <img id="check3"src=./images/check.png height=25px width=25px> 
+      <h5 id="head3">Symbols</h5>
+      </div>
+      <div class="number">
+      <img id="wrong4" src=./images/wrong.png height=25px width=25px>
+      <img id="check4"src=./images/check.png height=25px width=25px> 
+      <h5 id="head4">Numbers</h5>
+      </div>
+      <div class="length">
+      <img id="wrong5" src=./images/wrong.png height=25px width=25px>
+      <img id="check5"src=./images/check.png height=25px width=25px> 
+      <h5 id="head5">Length of character</h5>
+      </div>
+      </section>
+      <script>
+      
+      function check()
+      {
+      var pass=document.querySelector("#text").value
+      var head1=document.querySelector("#head1")
+      
+      
+      var lowercase=/([a-z])/
+      var uppercase=/([A-Z])/
+      var numberx=/([0-9])/
+      var symbolx=/([!-)^@*?])/
+      var length=/([a-zA-Z0-9!@#$%^&*()]{8,15})/
+      
+      
+      var wrong1=document.querySelector("#wrong1")
+      var check1=document.querySelector("#check1")
+      
+        if(lowercase.test(pass)) 
+        {
+          check1.style.display="block"
+          wrong1.style.display="none"
+          head1.style.color="green"
+        }
+        else 
+        {
+          check1.style.display="none"
+          wrong1.style.display="block"
+          head1.style.color="red"	
+        }
+      
+      var wrong2=document.querySelector("#wrong2")
+      var check2=document.querySelector("#check2")
+      var head2=document.querySelector("#head2")
+      
+        if(uppercase.test(pass))
+        {
+          check2.style.display="block"
+          wrong2.style.display="none"
+          head2.style.color="green"	
+        }
+        else 
+        {
+          check2.style.display="none"
+          wrong2.style.display="block"
+          head2.style.color="red"			
+        }
+      
+      var wrong3=document.querySelector("#wrong3")
+      var check3=document.querySelector("#check3")
+      var head3=document.querySelector("#head3")
+        
+        if(symbolx.test(pass))
+        {
+          check3.style.display="block"
+          wrong3.style.display="none"
+          head3.style.color="green"
+        }
+        else 
+        {
+          check3.style.display="none"
+          wrong3.style.display="block"
+          head3.style.color="red"	
+        }
+      
+      var wrong4=document.querySelector("#wrong4")
+      var check4=document.querySelector("#check4")
+      var head4=document.querySelector("#head4")
+      
+        if(numberx.test(pass))
+        {
+          check4.style.display="block"
+          wrong4.style.display="none"
+          head4.style.color="green"
+        }
+        else 
+        {
+          check4.style.display="none"
+          wrong4.style.display="block"
+          head4.style.color="red"
+        }
+      
+      var wrong5=document.querySelector("#wrong5")
+      var check5=document.querySelector("#check5")
+      var head5=document.querySelector("#head5")
+      
+        if(length.test(pass))
+        {
+          check5.style.display="block"
+          wrong5.style.display="none"
+          head5.style.color="green"
+        }
+        else 
+        {
+          check5.style.display="none"
+          wrong5.style.display="block"	
+          head5.style.color="red"
+        }
+      }
+      function show()
+      {
+        var section=document.querySelector(".section")
+        section.style.display="block"
+      }
+      function hide()
+      {
+        var section=document.querySelector(".section")
+        section.style.display="none"
+      } 
+      </script>
+    <form>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control signup" id="inputEmail3">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" id="text" onclick="show()" onblur="hide()" onkeyup="check()" class="form-control signup" id="inputPassword3">
+          </div>
+        </div>
+        <fieldset class="row mb-3">
+          <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                Male
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Female
+              </label>
+            </div>
+        </div>
+        </fieldset>
+        <div class="row mb-3">
+          <div class="col-sm-10 offset-sm-0">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck1">
+              <label class="form-check-label" for="gridCheck1">
+                Agree to all the Terms& Conditions
+              </label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+</body>
+</html>
